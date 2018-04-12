@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (4.7.0)
+  - CryptoSwift (0.8.3)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - CryptoSwift
+  - SDWebImage
+
+SPEC CHECKSUMS:
+  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  CryptoSwift: 033efc3523865d19cc6ab6612fa17a62613b5dfa
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
+
+PODFILE CHECKSUM: bff1c2bcc1b9946fb6fc723ffc90eef271c5999e
+
+COCOAPODS: 1.4.0
