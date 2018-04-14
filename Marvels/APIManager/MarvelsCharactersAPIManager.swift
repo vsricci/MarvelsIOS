@@ -13,7 +13,8 @@ class MarvelsCharactersAPIManager {
     
      let manager = Alamofire.SessionManager.default
      static let sharedInstance = MarvelsCharactersAPIManager()
-     func getCharacters(url: String, hash: String, date: String, apiKey: String, completion: @escaping(Any?, Any?) -> Void) {
+    
+    func getCharacters(url: String, hash: String, date: String, apiKey: String, completion: @escaping(Any?, Any?) -> Void) {
         
         let urlRequest = "\(url)\(date)&apikey=\(apiKey)&hash=\(hash)"
         let headers : HTTPHeaders = ["Content-Type": "application/json"]
@@ -29,12 +30,12 @@ class MarvelsCharactersAPIManager {
                     completion(nil, statusCode)
                     return
                 }
-                print(responseJSON)
+             //   print(responseJSON)
                 guard let dados = responseJSON["data"] as? [String:Any] else {
                     completion(nil, statusCode)
                     return
                 }
-                print(dados)
+              //  print(dados)
                 guard let results = dados["results"] as? [[String: Any]] else {
                     completion(nil, statusCode)
                     return
@@ -55,5 +56,44 @@ class MarvelsCharactersAPIManager {
             }
         }
         
+    }
+    
+    func getComicsCharactersID(url: String, characterID: Int, hash: String, date: String, completion: @escaping(Any?, Int?) -> Void) {
+        
+        let urlRequest = "\(url)\(characterID)/comics?ts=\(date)&apikey=\(apiKey)&hash=\(hash)"
+        print(urlRequest)
+        manager.request(urlRequest, method: .get).responseJSON { (response) in
+            
+            let statusCode = response.response?.statusCode
+            
+            switch response.result {
+                
+            case .success:
+                
+                guard let responseJSON = response.result.value as? [String : Any] else {
+                    completion(nil, statusCode)
+                    return
+                }
+                //print(responseJSON)
+                guard let dados = responseJSON["data"] as? [String:Any] else {
+                    completion(nil, statusCode)
+                    return
+                }
+               // print(dados)
+                guard let results = dados["results"] as? [[String: Any]] else {
+                    completion(nil, statusCode)
+                    return
+                }
+                for heroes in results {
+                
+                    let description = heroes["description"] as? String
+                    completion(description, statusCode)
+                }
+                
+            case .failure(let error):
+                
+                completion(error.localizedDescription, nil)
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18181759207F915600AD63F5 /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18181758207F915600AD63F5 /* Characters.swift */; };
 		1818175C207F96DD00AD63F5 /* CharactersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1818175B207F96DD00AD63F5 /* CharactersCell.swift */; };
+		18BCF6EF20804E87004B3FB0 /* MarvelCharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BCF6EE20804E87004B3FB0 /* MarvelCharactersViewController.swift */; };
 		18D4682E207D9A5C00AB0366 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4682D207D9A5C00AB0366 /* AppDelegate.swift */; };
 		18D46830207D9A5C00AB0366 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D4682F207D9A5C00AB0366 /* ViewController.swift */; };
 		18D46833207D9A5C00AB0366 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D46831207D9A5C00AB0366 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		18181758207F915600AD63F5 /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
 		1818175B207F96DD00AD63F5 /* CharactersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCell.swift; sourceTree = "<group>"; };
 		185E0173C45A7AEDC6163822 /* Pods-MarvelsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MarvelsUITests/Pods-MarvelsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		18BCF6EE20804E87004B3FB0 /* MarvelCharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharactersViewController.swift; sourceTree = "<group>"; };
 		18D4682A207D9A5C00AB0366 /* Marvels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marvels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D4682D207D9A5C00AB0366 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D4682F207D9A5C00AB0366 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,8 +111,19 @@
 			isa = PBXGroup;
 			children = (
 				1818175B207F96DD00AD63F5 /* CharactersCell.swift */,
+				18D46836207D9A5D00AB0366 /* LaunchScreen.storyboard */,
+				18D46831207D9A5C00AB0366 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		18BCF6ED20804E1F004B3FB0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18D4682F207D9A5C00AB0366 /* ViewController.swift */,
+				18BCF6EE20804E87004B3FB0 /* MarvelCharactersViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		18D46821207D9A5C00AB0366 = {
@@ -138,15 +151,13 @@
 		18D4682C207D9A5C00AB0366 /* Marvels */ = {
 			isa = PBXGroup;
 			children = (
+				18BCF6ED20804E1F004B3FB0 /* Controller */,
 				1818175A207F96C800AD63F5 /* View */,
 				18181757207F914300AD63F5 /* Model */,
 				18D4685E207D9EFD00AB0366 /* Contents */,
 				18D4685B207D9AF900AB0366 /* APIManager */,
 				18D4682D207D9A5C00AB0366 /* AppDelegate.swift */,
-				18D4682F207D9A5C00AB0366 /* ViewController.swift */,
-				18D46831207D9A5C00AB0366 /* Main.storyboard */,
 				18D46834207D9A5D00AB0366 /* Assets.xcassets */,
-				18D46836207D9A5D00AB0366 /* LaunchScreen.storyboard */,
 				18D46839207D9A5D00AB0366 /* Info.plist */,
 			);
 			path = Marvels;
@@ -507,6 +518,7 @@
 				1818175C207F96DD00AD63F5 /* CharactersCell.swift in Sources */,
 				18D4685D207D9B1200AB0366 /* MarvelsCharactersAPIManager.swift in Sources */,
 				18D4682E207D9A5C00AB0366 /* AppDelegate.swift in Sources */,
+				18BCF6EF20804E87004B3FB0 /* MarvelCharactersViewController.swift in Sources */,
 				18D46860207D9F1900AB0366 /* Contents.swift in Sources */,
 				18181759207F915600AD63F5 /* Characters.swift in Sources */,
 			);

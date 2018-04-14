@@ -12,6 +12,7 @@ import  UIKit
 enum Urls : String {
     
     case urlMarvelsCharacters = "https://gateway.marvel.com:443/v1/public/characters?ts="
+    case urlMarvelComicsCharactersID = "https://gateway.marvel.com:443/v1/public/characters/"
 }
 
 let ts = "Thu, 12 Apr 2018 12:21:53 GMT"

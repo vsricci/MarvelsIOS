@@ -30,6 +30,14 @@ class ViewController: UIViewController {
         let hash = "\(dateString)\(secretKey)\(apiKey)".md5()
         print(hash)
         
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 1, bottom: 5, right: 1)
+        layout.itemSize = CGSize(width: width / 2, height: width / 2)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 5
+        collectionView!.collectionViewLayout = layout
+        
         getCharacters(url: Urls.urlMarvelsCharacters.rawValue, hash: hash, date: dateString, apikey: apiKey)
         
     }
@@ -54,9 +62,27 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    func showDetailsCharactersMarvelComics(charactersDetails : Characters) {
+        
+        let marvelsCharactersDetailsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "") as! MarvelCharactersViewController
+        marvelsCharactersDetailsVC.dataMarvelsCharacters = charactersDetails
+        self.navigationController?.pushViewController(marvelsCharactersDetailsVC, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "marvelcharactersDetailsStoryboardSegueID" {
+            let navigationSegue = segue.destination as! MarvelCharactersViewController
+            if let indexPath = self.collectionView.indexPathsForSelectedItems?[0] {
+                
+                let marvelcharactersDetails = self.charactersArray[indexPath.row]
+                navigationSegue.dataMarvelsCharacters = marvelcharactersDetails
+            }
+        }
+    }
 }
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -71,6 +97,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         let charactersDetails = self.charactersArray[indexPath.row]
         cell.showCharactersMarvelCell(charactersDetails: charactersDetails)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = UIScreen.main.bounds.size.width
+        let height = UIScreen.main.bounds.size.height
+        
+        return CGSize(width: width*0.49, height: height*0.4)
     }
 }
 
