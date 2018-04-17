@@ -10,6 +10,7 @@ target 'Marvels' do
 	pod 'Alamofire'
 	pod 'SDWebImage'
 	pod 'CryptoSwift'
+	pod 'ParallaxHeader'
 
   target 'MarvelsTests' do
     inherit! :search_paths

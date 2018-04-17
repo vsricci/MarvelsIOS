@@ -16,7 +16,7 @@ class MarvelsCharactersAPIManager {
     
     func getCharacters(url: String, hash: String, date: String, apiKey: String, completion: @escaping(Any?, Any?) -> Void) {
         
-        let urlRequest = "\(url)\(date)&apikey=\(apiKey)&hash=\(hash)"
+        let urlRequest = "\(url)\(date)&limit=100&apikey=\(apiKey)&hash=\(hash)"
         let headers : HTTPHeaders = ["Content-Type": "application/json"]
         print(urlRequest)
         manager.request(urlRequest, method: .get).responseJSON { (response) in
